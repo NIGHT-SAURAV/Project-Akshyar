@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Project Akshyar</title>
+     <link rel="icon" type="image/x-icon" href="toplogo.png">
+     <link rel="stylesheet" href="styles-noanim.css">
+    <script src="scrollButton.js"></script>
+    <script src="nepali-date.js"></script>
+    <script src="footer.js"></script>
+</head>
+<body onload=updateClock(); background="bg.png">
+
+    <header>
+    <div id="left-image">
+      <img src="logo.png" alt="Left Image">
+    </div>
+    <div id="right-image">
+      <img src="flag.gif" alt="Right Image">
+     <b><div id="DATE_IN_NEPALI"></div>
+      <div id="TIME_IN_NEPALI"></div></b>
+    </div>
+  </header>
+    
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="api.html">Get API</a>
+    </nav>
+
+    <section><center>
+         <div id="uploadBox">
+         <img src="draw.png" alt="Draw Image">
+        <img id="uploadedImage" alt="Uploaded Image">
+        <img id="imagePreview" style="display: none;" alt="Uploaded Image"></section></center>
+     
+        <center>
+            <label for="fileInput" id="uploadLabel">
+        <button id="uploadButton">Upload</button>
+    </label>
+    <input type="file" id="fileInput" name="fileInput" accept="image/*" style="display: none;">
+    <a href="index.html"><button>Use another method</button></a>
+    <a href="output.html"> <button onclick="submitCanvas()">Submit</button></a>
+    <br><br>
+</center>
+    <section>   
+    <h2>Steps for Using Akshyar</h2>
+
+    <h3>For Drawing Canvas:</h3>
+    <ol>
+        <li>Click the "Draw Canvas" option below the input container and draw the Devnagari alphabet or word in the white space shown.</li>
+        <li>After finishing the drawing, click on the "Submit" button for processing and getting OCR'ed output.</li>
+    </ol>
+
+    <h3>For Capturing:</h3>
+    <ol>
+        <li>Click on the "Capture" button, which allows the web app to open the webcam/camera present in the device.</li>
+        <li>Then capture the Devnagari written text, and after capturing, click on the "Submit" button for processing and getting OCR'ed output.</li>
+    </ol>
+
+    <h3>For Uploading:</h3>
+    <ol>
+        <li>Click on the "Upload" button and select the image for processing.</li>
+        <li>After selecting the image, click on the "Submit" button for processing and getting OCR'ed output.</li>
+    </ol><br><br><br>
+</div>
+    </section>
+    <button id="scrollButton" title="Go to top">&#9652;</button>
+    <br><br><br><br><br>
+<footer id="site-footer">
+        <p>&copy; 2023 Project Akshyar. All Rights Reserved.</p>
+    </footer>  
+</body>
+
+   <script src="upload.js"></script>
+   <script src="scroll-animation.js"></script>
+</html>
