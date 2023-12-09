@@ -143,8 +143,13 @@ footer {
         }
 
 @media screen and (max-width: 600px) {
+    .parallax {
+            height: calc(100vh - 400px);
+            margin-top: 80px;
+        }
 
     header {
+            padding: 10px;
             flex-direction: column;
             text-align: center;
         }

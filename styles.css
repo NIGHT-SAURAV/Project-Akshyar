@@ -44,7 +44,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 100px;
+    padding: 30px 20px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -152,24 +152,6 @@ footer {
             transition: transform 0.5s ease-in-out;
         }
 
-
-@media screen and (max-width: 600px) {
-
- footer {
-                padding: 5px; /* Adjust the padding for smaller screens */
-                font-size: 9px; /* Adjust the font size for smaller screens */
-            }
-#scrollButton {
-                bottom: 50px; /* Adjust the distance from the bottom for smaller screens */
-                right: 10px; /* Adjust the distance from the right for smaller screens */
-            } 
-            #text {
-    font-size: 2em;
-}
-}
-
-          
-
     
         main {
             display: flex;
@@ -242,26 +224,49 @@ footer {
         object-fit: contain;
     }
 
+
+
         @media (max-width: 600px) {
+             header {
+        padding: 10px;
+        flex-direction: column;
+        text-align: center;
+
+    }
+        .parallax {
+            height: calc(100vh - 400px);
+            margin-top: 80px;
+        }
+
+        footer {
+                padding: 10px; /* Adjust the padding for smaller screens */
+                font-size: 12px; /* Adjust the font size for smaller screens */
+                transform: translateY(0);
+                text-align: center;
+            }
+        #scrollButton {
+                bottom: 10px; /* Adjust the distance from the bottom for smaller screens */
+                right: 5px; /* Adjust the distance from the right for smaller screens */
+            } 
+        #text {
+        font-size: 2em;
+        }
             .box {
                 
                 background-image: url('mobile-box.png');
-               
+                background-size: cover;
             }
              .desktop-image {
             display: none; /* Hide the desktop image in mobile view */
         }
 
-            header {
-            flex-direction: column;
-            text-align: center;
-        }
         
             .button-container {
                 flex-direction: column; /* Set to column for mobile view */
-                gap: 50px; /* Adjusted gap for mobile view */
-                justify-content: center; /* Align to the right for mobile view */
-                margin-left: 40px;
+                gap: 100px; /* Adjusted gap for mobile view */
+                justify-content: flex-end; /* Align to the right for mobile view */
+                margin-left: 230px;
+                margin-top: 60px;
             }
         }
 

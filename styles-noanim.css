@@ -208,10 +208,10 @@ footer {
         .button-container {
             display: flex;
             flex-direction: row; /* Set to row for desktop view */
-            gap: 50px; /* Add custom gap between buttons */
+            gap: 30px; /* Add custom gap between buttons */
             justify-content: flex-end; /* Align to the right for mobile view */
-            margin-right: 170px;
-            margin-top: 250px;
+            margin-right: 480px;
+            margin-top: 30px;
         }
 
         .button-container a {
@@ -219,7 +219,7 @@ footer {
         }
 
         .button-container button {
-            width: 100%;
+            width: 150%;
             max-width: 200px;
             padding: 10px;
             font-size: 16px;
@@ -232,7 +232,7 @@ footer {
         }
 
         .button-container button:hover {
-            background-color: ; /* Set the background color to #ddd on hover */
+            background-color: #fff; /* Set the background color to #ddd on hover */
             color: #000000; /* Set the font color to black on hover */
         }
 
@@ -254,9 +254,16 @@ footer {
         }
 
             header {
+                padding: 10px;
             flex-direction: column;
             text-align: center;
         }
+
+        .parallax {
+            height: calc(100vh - 400px);
+            margin-top: 80px;
+        }
+        
         footer {
                 padding: 5px; /* Adjust the padding for smaller screens */
                 font-size: 12px; /* Adjust the font size for smaller screens */
@@ -273,8 +280,9 @@ footer {
                 justify-content: center; /* Align to the right for mobile view */
                 margin-left: 40px;
             }
+            #text {
+    font-size: 2em;
         }
 
 
 
-  </style>

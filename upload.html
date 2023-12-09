@@ -35,11 +35,12 @@
      
         <center>
             <label for="fileInput" id="uploadLabel">
+                 <div class="button-container">
         <button id="uploadButton">Upload</button>
     </label>
     <input type="file" id="fileInput" name="fileInput" accept="image/*" style="display: none;">
     <a href="index.html"><button>Use another method</button></a>
-    <a href="output.html"> <button onclick="submitCanvas()">Submit</button></a></section>
+    <a href="output.html"> <button onclick="submitCanvas()">Submit</button></a></div></section>
 </center>
     <section class="sec">
          <div class="container">   
@@ -61,7 +62,7 @@
     <ol>
         <li>Click on the "Upload" button and select the image for processing.</li>
         <li>After selecting the image, click on the "Submit" button for processing and getting OCR'ed output.</li>
-    </ol><br><br><br>
+    </ol>
 </div>
     </section>
     <button id="scrollButton" title="Go to top">&#9652;</button>
@@ -74,5 +75,5 @@
    <script src="upload.js"></script>
    <script src="scroll-animation.js"></script>
    <script src="scrollButton.js"></script>
-    <script src="footer.js"></script>
+   <script src="footer.js"></script>
 </html>

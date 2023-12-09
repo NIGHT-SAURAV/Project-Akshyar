@@ -27,7 +27,7 @@ function validateForm() {
         return false;
     }
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw9Ye1XKBnwS0RwHxneiKJzgvy5lm81sQTSavdy9Rq8xXtUPnGuv0LwMIRoVYsuiSKYgA/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxsl8ofMqdgtcpRZpNk0YkXxFWtukOouGXPJSw8-NCGoU0ZQoFV3f8600-vncP_jkHS6A/exec';
     const form = document.getElementById('contactForm');
 
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
