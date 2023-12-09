@@ -27,8 +27,22 @@ function validateForm() {
         return false;
     }
 
-    // If all validations pass, the form will submit
-    return true;
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw9Ye1XKBnwS0RwHxneiKJzgvy5lm81sQTSavdy9Rq8xXtUPnGuv0LwMIRoVYsuiSKYgA/exec';
+    const form = document.getElementById('contactForm');
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            if (response.ok) {
+                alert("Thank you! Your form is submitted successfully.");
+                window.location.href = 'index.html'; // Redirect to index.html
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        })
+        .catch(error => console.error('Error!', error.message));
+
+    // Prevent default form submission
+    return false;
 }
 
 function showError(message) {

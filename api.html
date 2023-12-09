@@ -29,7 +29,8 @@
 
 <section class="sec">
     <div class="container">
-    <form id="contactForm" onsubmit="return validateForm()">
+    <form id="contactForm" onsubmit="return validateForm()" action="https://script.google.com/macros/s/AKfycbw9Ye1XKBnwS0RwHxneiKJzgvy5lm81sQTSavdy9Rq8xXtUPnGuv0LwMIRoVYsuiSKYgA/exec" method="post">
+
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -41,12 +42,12 @@
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-        </form><br><br>
-        <center>  <button type="submit">Submit</button> </center>
-    </div>
+          <center>  <a href="index.html"><button id="submit-btn" onclick="submitForm()">Request for API</button></a></center>
+        </form><br><br></div></section>
+        <center>  
+
 
     
-</section>
 <button id="scrollButton" title="Go to top">&#9652;</button>
 <center>
     <br><br>
