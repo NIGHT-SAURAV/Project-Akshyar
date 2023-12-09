@@ -1,18 +1,41 @@
+function validateForm() {
+    var name = document.getElementById('name').value;
+    var organization = document.getElementById('organization').value;
+    var designation = document.getElementById('designation').value;
+    var email = document.getElementById('email').value;
 
-<script>
-    function submitForm() {
-        // Add your form submission logic here.
-        // You can access the values entered by the user using document.getElementById or other methods.
-        // For example:
-        var name = document.getElementById('name').value;
-        var company = document.getElementById('company').value;
-        var designation = document.getElementById('designation').value;
-        var email = document.getElementById('email').value;
+    var nameRegex = /^[a-zA-Z\s]+$/;
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // You can use the retrieved values for further processing or submission.
-        console.log("Name:", name);
-        console.log("Company:", company);
-        console.log("Designation:", designation);
-        console.log("Email:", email);
+    if (!nameRegex.test(name)) {
+        showError("Name can only contain letters and spaces.");
+        return false;
     }
-</script>
+
+    if (!nameRegex.test(organization)) {
+        showError("Organization can only contain letters and spaces.");
+        return false;
+    }
+
+    if (!nameRegex.test(designation)) {
+        showError("Designation can only contain letters and spaces.");
+        return false;
+    }
+
+    if (!emailRegex.test(email)) {
+        showError("Please enter a valid email address.");
+        return false;
+    }
+
+    // If all validations pass, the form will submit
+    return true;
+}
+
+function showError(message) {
+    var errorDiv = document.createElement('div');
+    errorDiv.className = 'error';
+    errorDiv.textContent = message;
+
+    var form = document.getElementById('contactForm');
+    form.appendChild(errorDiv);
+}

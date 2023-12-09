@@ -4,53 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Project Akshyar</title>
-     <link rel="icon" type="image/x-icon" href="toplogo.png?">
+     <link rel="icon" type="image/x-icon" href="toplogo.png">
      <link rel="stylesheet" href="styles.css">
-    <script src="scrollButton.js" defer></script>
-    <script src="nepali-date.js"></script>
-    <script src="footer.js"></script>
 </head>
-<body onload=updateClock(); background="bg.png">
+<body>
     
 
     <header>
-    <div id="left-image">
-      <img src="logo.png" alt="Left Image">
-    </div>
-    <div id="right-image">
-      <img src="flag.gif" alt="Right Image">
-     <b><div id="DATE_IN_NEPALI"></div>
-      <div id="TIME_IN_NEPALI"></div></b>
-    </div>
-  </header>
-
-    
-    <nav>
-
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="api.html">Get API</a>
+    <h2 class="logo">logo</h2>
+    <nav class="navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About US</a>
+      <a href="api.html">Get API</a>
     </nav>
+    </header>
 
-    <section>
-        <h2>Your Output is : </h2>
+    <section class="parallax">
+        <img src="text left.png" id="left">
+        <img src="text right bg.png" id="right">
+        <img src="mountain bg.png" id="mountain">
+        <img src="back hill bg.png" id="back">
+        <h2 id="text"> Project Akshyar</h2>
+        <img src="front hill bg.png" id="front">
 
     </section>
+    <section class="sec">
+        <h2>Your Output is : </h2>
+
 
           <center> 
             <a href="output.html"><button>Regenerate</button></a>
-            <a href="index.html"><button>Use another method</button></a></center>
-<section>
+            <a href="index.html"><button>Use another method</button></a></center> 
+        </section>
+
+<section class="sec">
+         <div class="container"> 
     <center><h2><strong>Thank you for choosing Project Akshyar <br><br> Where Nepali OCR Excellence Meets Innovation!</strong></h2></center>
+</div>
     </section>
 
     
         <button id="scrollButton" title="Go to top">&#9652;</button>
-    <br><br><br><br><br>
+    <br><br>
 <footer id="site-footer">
         <p>&copy; 2023 Project Akshyar. All Rights Reserved.</p>
     </footer>
 </body>
-<script src="scroll-animation.js"></script>
+   <script src="scroll-animation.js"></script>
+   <script src="scrollButton.js"></script>
+   <script src="footer.js"></script>
+   <script src="script.js"></script>
 
 </html>

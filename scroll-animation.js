@@ -1,4 +1,4 @@
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('.container');
 
 const options = {
     threshold: 0.5
