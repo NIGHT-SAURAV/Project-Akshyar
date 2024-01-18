@@ -7,7 +7,7 @@ context.fillStyle = '#fff'; // Set background color
 context.fillRect(0, 0, canvas.width, canvas.height); // Fill the canvas with the background color
 
 // Set drawing properties
-context.lineWidth = 5;
+context.lineWidth = 8;
 context.lineCap = 'round';
 context.strokeStyle = '#000';
 
@@ -31,9 +31,11 @@ function startDrawing(e) {
 function draw(e) {
     if (!isDrawing) return;
 
+    var rect = canvas.getBoundingClientRect(); // get the bounding box of the canvas
+
     context.beginPath();
-    context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-    context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+    context.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    context.lineTo(e.clientX - rect.left, e.clientY - rect.top);
     context.stroke();
 }
 
@@ -59,18 +61,20 @@ var touchX, touchY;
 
 function handleTouchStart(event) {
     event.preventDefault();
-    touchX = event.touches[0].clientX - canvas.offsetLeft;
-    touchY = event.touches[0].clientY - canvas.offsetTop;
+    var rect = canvas.getBoundingClientRect();
+    touchX = event.touches[0].clientX - rect.left;
+    touchY = event.touches[0].clientY - rect.top;
     startDrawing({ clientX: touchX, clientY: touchY });
 }
 
 function handleTouchMove(event) {
     event.preventDefault();
-    touchX = event.touches[0].clientX - canvas.offsetLeft;
-    touchY = event.touches[0].clientY - canvas.offsetTop;
+    var rect = canvas.getBoundingClientRect();
+    touchX = event.touches[0].clientX - rect.left;
+    touchY = event.touches[0].clientY - rect.top;
     draw({ clientX: touchX, clientY: touchY });
 }
 
- function openCanvas() {
-        window.location.href = 'draw.html'; 
-    }
+function openCanvas() {
+    window.location.href = 'draw.html'; 
+}

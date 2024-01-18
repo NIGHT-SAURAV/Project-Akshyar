@@ -195,8 +195,8 @@ footer {
                 font-size: 9px; /* Adjust the font size for smaller screens */
             }
 #scrollButton {
-                bottom: 50px; /* Adjust the distance from the bottom for smaller screens */
-                right: 10px; /* Adjust the distance from the right for smaller screens */
+                bottom: 10px; /* Adjust the distance from the bottom for smaller screens */
+                right: 5px; /* Adjust the distance from the right for smaller screens */
             } 
             #text {
     font-size: 2em;
