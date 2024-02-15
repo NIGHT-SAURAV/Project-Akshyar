@@ -35,24 +35,16 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 100px;
+    padding: 10px 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     z-index: 100;
 }
 footer {
-            background-image: linear-gradient(to right, #264a87 , #0CAFFF);
-            text-align: center;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            transform: translateY(100%);
-            transition: transform 0.5s ease-in-out;
-        }
+    background-color: #1c7fad;
+    color: #fff;
+}
         form {
             display: flex;
             flex-direction: column;
@@ -63,13 +55,13 @@ footer {
 
         label {
             font-size: 1.2em;
-            color: #2b91bd;
+            color: black;
         }
 
         input {
             width: 100%;
             padding: 8px;
-            border: 1px solid #2b91bd;
+            border: 1px solid black;
             border-radius: 5px;
             margin-top: 5px;
         }
@@ -89,12 +81,19 @@ footer {
             background-color: #1c7fad;
         }
 
-.logo {
-    font-size: 2em;
-    color: #2b91bd;
-    pointer-events: none;
-    margin-right: 50px;
-}
+        .logo {
+            font-size: 2em;
+        }
+        
+        .Project {
+            color: #2b91bd;;
+            font-size: 2em;
+        }
+        
+        .अक्षर {
+            color: orange;
+            font-size: 0.8em;
+        }
     
 .navigation a {
     text-decoration: none;
@@ -145,37 +144,25 @@ footer {
     padding: 10px;
 }
 
-.container {
-    width: 500px;
-    margin: 5px auto;
-    background: url('section-bg.png') center/cover;
-    border-radius: 15px;
-    padding: 10px;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-.container.show {
-    opacity: 1;
-}
-
-.container:hover {
-    background-image: url('section-bg-hover.png');
-}
-
-
-
  #scrollButton {
             display: none;
             position: fixed;
             bottom: 80px;
             right: 20px; 
             color: #2b91bd;
+            background-color: #fff;
             border: none;
-            border-radius: 50%;
-            padding: 10px;
+            border-radius: 100% !important;
+            width: 50px;
+            height: 80px;
+            padding: 0px;
             font-size: 40px;
             cursor: pointer;
+        }
+
+        #scrollButton:hover {
+            background-color: #1c7fad; /* Change background color on hover */
+            color: #ffffff;
         }
 
 @media screen and (max-width: 600px) {
@@ -198,6 +185,4 @@ footer {
                 bottom: 10px; /* Adjust the distance from the bottom for smaller screens */
                 right: 5px; /* Adjust the distance from the right for smaller screens */
             } 
-            #text {
-    font-size: 2em;
 }

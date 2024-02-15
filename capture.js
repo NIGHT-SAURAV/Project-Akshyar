@@ -26,21 +26,25 @@ async function captureImage() {
     return imageUrl;
 }
 
-function downloadImage(imageUrl) {
-    const link = document.createElement('a');
-    link.download = 'process.png';
-    link.href = imageUrl;
-    link.click();
-}
-
 async function captureAndSave() {
     const imageUrl = await captureImage();
-    downloadImage(imageUrl);
+    // Freeze the webcam output by pausing the video
+    video.pause();
+    // Replace the "Capture" button text with "Recapture"
+    const captureButton = document.querySelector('.button-container button');
+    captureButton.textContent = 'Recapture';
+    captureButton.addEventListener('click', recapture); // Add event listener for recapture
+    // Optionally, you can perform some other action with the captured image here
+}
+
+function recapture() {
+    // Reload the current page
+    window.location.reload();
+}
+
+function openWebcam() {
+    window.location.href = 'cap.html'; 
 }
 
 // Call setupCamera to initialize the camera
 setupCamera();
-
- function openWebcam() {
-        window.location.href = 'cap.html'; 
-    }

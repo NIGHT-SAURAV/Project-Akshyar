@@ -35,30 +35,29 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 100px;
+    padding: 10px 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     z-index: 100;
 }
 footer {
-            background-image: linear-gradient(to right, #264a87 , #0CAFFF);
-            text-align: center;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            transform: translateY(100%);
-            transition: transform 0.5s ease-in-out;
-        }
+    background-color: #1c7fad;
+    color: #fff;
+}
 
 .logo {
     font-size: 2em;
-    color: #2b91bd;
-    pointer-events: none;
-    margin-right: 50px;
+}
+
+.Project {
+    color: #2b91bd;;
+    font-size: 2em;
+}
+
+.अक्षर {
+    color: orange;
+    font-size: 0.8em;
 }
     
 .navigation a {
@@ -142,9 +141,34 @@ footer {
             cursor: pointer;
         }
 
+        #scrollButton:hover {
+            background-color: #1c7fad; /* Change background color on hover */
+            color: #ffffff;
+        }
+ 
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: #51abcb; /* Blue color */
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #51abcb; /* Blue color */
+        }
+        
+
 @media screen and (max-width: 600px) {
     .parallax {
-            height: calc(100vh - 400px);
+            height: calc(90vh - 400px);
             margin-top: 80px;
         }
 
@@ -154,10 +178,10 @@ footer {
             text-align: center;
         }
 
- footer {
-                padding: 5px; /* Adjust the padding for smaller screens */
-                font-size: 9px; /* Adjust the font size for smaller screens */
-            }
+        footer {
+            font-size: 10px;
+        }
+
 #scrollButton {
                 bottom: 50px; /* Adjust the distance from the bottom for smaller screens */
                 right: 10px; /* Adjust the distance from the right for smaller screens */

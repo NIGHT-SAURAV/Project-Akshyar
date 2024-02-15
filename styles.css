@@ -39,23 +39,36 @@ body {
     overflow-x: hidden;
 }
 
+
 header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 20px;
+    padding: 10px 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     z-index: 100;
 }
 
+footer {
+    background-color: #1c7fad;
+    color: #fff;
+}
+
 .logo {
     font-size: 2em;
-    color: #2b91bd;
-    pointer-events: none;
-    margin-right: 50px;
+}
+
+.Project {
+    color: #2b91bd;;
+    font-size: 2em;
+}
+
+.अक्षर {
+    color: orange;
+    font-size: 0.8em;
 }
     
 .navigation a {
@@ -135,19 +148,10 @@ header {
             cursor: pointer;
         }
 
-footer {
-            background-image: linear-gradient(to right, #264a87 , #0CAFFF);
-            text-align: center;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            transform: translateY(100%);
-            transition: transform 0.5s ease-in-out;
+        #scrollButton:hover {
+            background-color: #1c7fad; /* Change background color on hover */
+            color: #ffffff;
         }
-
     
         main {
             display: flex;
@@ -174,53 +178,105 @@ footer {
             padding: 0px;
             margin: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center horizontally and vertically */
+            position: relative;
         }
 
         .box img {
         max-width: 100%;
         max-height: 200%;
-        object-fit: contain;
+        object-fit: cover;
+    }
+     
+    .button-output {
+        flex-direction: row; /* Set to row for desktop view */
+        gap: 40px; /* Add custom gap between buttons */
+        margin-top: 20px;
     }
 
-        .button-container {
-            display: flex;
-            flex-direction: row; /* Set to row for desktop view */
-            gap: 380px; /* Add custom gap between buttons */
-            justify-content: flex-end; /* Align to the right for mobile view */
-            margin-right: 170px;
-            margin-top: 250px;
-        }
-
-        .button-container a {
-            text-decoration: none; /* Remove default underline for links */
-        }
-
-        .button-container button {
-            width: 100%;
-            max-width: 200px;
-            padding: 10px;
-            font-size: 16px;
-            background-color: #1c7fad; /* Set the background color to #1c7fad */
-            color: #ffffff; /* Set the default text color to white */
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover for background and color */
-            border-radius: 10px; /* Add curved corners */
-        }
-
-        .button-container button:hover {
-            background-color: #ddd; /* Set the background color to #ddd on hover */
-            color: #000000; /* Set the font color to black on hover */
-        }
-
-
-         .box img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
+    .button-output a {
+        text-decoration: none; /* Remove default underline for links */
     }
 
+    .button-output button {
+        width: 100%;
+        max-width: 200px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #1c7fad; /* Set the background color to #1c7fad */
+        color: #ffffff; /* Set the default text color to white */
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover for background and color */
+        border-radius: 10px; /* Add curved corners */
+    }
 
+    .button-output button:hover {
+        background-color: #ddd; /* Set the background color to #ddd on hover */
+        color: #000000; /* Set the font color to black on hover */
+    }
+--------------------------.button-input {
+    display: flex; /* Set to flex to enable flexbox */
+    margin-top: 60px; /* Increased margin top */
+    justify-content: center; /* Center align buttons along the x-axis */
+}
+
+.button-input a {
+    text-decoration: none; /* Remove default underline for links */
+}
+
+.button-input button {
+    padding: 10px 20px; /* Adjust padding */
+    font-size: 16px;
+    background-color: #1c7fad; /* Set the background color to #1c7fad */
+    color: #ffffff; /* Set the default text color to white */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover for background and color */
+    border-radius: 10px; /* Add curved corners */
+    margin-top: 230px;
+}
+
+.button-input button:first-child {
+    margin-right: 0px; 
+}
+
+.button-input button:last-child {
+    margin-right: 320px; 
+    margin-left: 233px;
+}
+
+.button-input button:hover {
+    background-color: #ddd; 
+    color: #000000; 
+}
+
+        
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: #51abcb; /* Blue color */
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #51abcb; /* Blue color */
+        }
+        
+
+
+
+/* RESPONSIVE */
 
         @media (max-width: 600px) {
              header {
@@ -229,17 +285,14 @@ footer {
         text-align: center;
 
     }
+            footer {
+                font-size: 10px;
+            }
         .parallax {
-            height: calc(100vh - 400px);
+            height: calc(90vh - 400px);
             margin-top: 80px;
         }
 
-        footer {
-                padding: 10px; /* Adjust the padding for smaller screens */
-                font-size: 12px; /* Adjust the font size for smaller screens */
-                transform: translateY(0);
-                text-align: center;
-            }
         #scrollButton {
                 bottom: 10px; /* Adjust the distance from the bottom for smaller screens */
                 right: 5px; /* Adjust the distance from the right for smaller screens */

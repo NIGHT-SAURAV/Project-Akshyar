@@ -1,3 +1,5 @@
+console.log("Form validation started.");
+
 function validateForm() {
     var name = document.getElementById('name').value;
     var organization = document.getElementById('organization').value;
@@ -28,28 +30,68 @@ function validateForm() {
     }
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzukYPaMvpgByTq41Vs9s0mu6QegXmIMG2HQxi9UygGacyIyG-EgJ1kuC0Zl4bSrNx2tg/exec';
+    console.log("submitted");
     const form = document.getElementById('contactForm');
+    console.log("hello")
+    console.log("hi")
+    return true;
+}
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            if (response.ok) {
-                alert("Thank you! Your form is submitted successfully.");
-                window.location.href = 'index.html'; // Redirect to index.html
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        })
-        .catch(error => console.error('Error!', error.message));
-
-    // Prevent default form submission
-    return false;
+function displaySwal(message) {
+    Swal.fire({
+        text: message // Changed "thank" to "message"
+    });
 }
 
 function showError(message) {
-    var errorDiv = document.createElement('div');
-    errorDiv.className = 'error';
-    errorDiv.textContent = message;
-
-    var form = document.getElementById('contactForm');
-    form.appendChild(errorDiv);
+    console.error(message);
 }
+
+function clearForm() {
+    let nameInput = document.getElementById("name");
+    let organizationInput = document.getElementById("organization");
+    let designationInput = document.getElementById("designation");
+    let emailInput = document.getElementById("email");
+    nameInput.value = "";
+    emailInput.value = "";
+    organizationInput.value = "";
+    designationInput.value = "";
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting traditionally
+
+    // Validate the form
+    if (!validateForm()) {
+        return; // Exit the function if validation fails
+    }
+
+    // Get form data
+    var formData = new FormData(this);
+
+    // Make an AJAX request to submit the form data
+    fetch('https://script.google.com/macros/s/AKfycbzukYPaMvpgByTq41Vs9s0mu6QegXmIMG2HQxi9UygGacyIyG-EgJ1kuC0Zl4bSrNx2tg/exec', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Handle successful response here
+        console.log(data);
+        // Optionally, display a success message
+        displaySwal("Form submitted successfully!");
+        // Clear the form fields
+        clearForm();
+    })
+    .catch(error => {
+        // Handle error here
+        console.error('There was an error!', error);
+        // Optionally, display a user-friendly error message
+        displaySwal("An error occurred while submitting the form.");
+    });
+});

@@ -46,18 +46,30 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 100px;
+    padding: 10px 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     z-index: 100;
 }
 
+footer {
+    background-color: #1c7fad;
+    color: #fff;
+}
+
 .logo {
     font-size: 2em;
-    color: #2b91bd;
-    pointer-events: none;
-    margin-right: 50px;
+}
+
+.Project {
+    color: #2b91bd;;
+    font-size: 2em;
+}
+
+.अक्षर {
+    color: orange;
+    font-size: 0.8em;
 }
     
 .navigation a {
@@ -133,25 +145,18 @@ header {
             position: fixed;
             bottom: 80px;
             right: 20px; 
-            color: #2b91bd;
+            color: #1c7fad;
             border: none;
             border-radius: 50%;
             padding: 10px;
             font-size: 40px;
             cursor: pointer;
+            background-color: #ffffff;
         }
 
-footer {
-            background-image: linear-gradient(to right, #264a87 , #0CAFFF);
-            text-align: center;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            transform: translateY(100%);
-            transition: transform 0.5s ease-in-out;
+        #scrollButton:hover {
+            background-color: #1c7fad; /* Change background color on hover */
+            color: #ffffff;
         }
 
         main {
@@ -210,10 +215,14 @@ footer {
         .button-container {
             display: flex;
             flex-direction: row; /* Set to row for desktop view */
-            gap: 30px; /* Add custom gap between buttons */
-            justify-content: flex-end; /* Align to the right for mobile view */
-            margin-right: 480px;
-            margin-top: 30px;
+            column-gap: 30px;
+            justify-content: center; /* Align to the right for mobile view */
+            margin-right: 100px;
+            margin-top: 20px;
+        }
+
+        .button-container button:last-child {
+            margin-right: 15px; 
         }
 
         .button-container a {
@@ -240,10 +249,30 @@ footer {
 
 
          .box img {
-        max-width: 100%;
+        max-width: 60%;
         max-height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #f5f5f5;
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #51abcb; /* Blue color */
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #51abcb; /* Blue color */
+    }
+    
 
         @media (max-width: 600px) {
             .box {
@@ -251,6 +280,13 @@ footer {
                 background-image: url('mobile-box.png');
                
             }
+
+            .box img {
+                max-width: 50%; /* Adjusted max-width for mobile */
+                max-height: 60%; /* Adjusted max-height for mobile */
+                object-fit: cover;
+            }
+
              .desktop-image {
             display: none; /* Hide the desktop image in mobile view */
         }
@@ -261,30 +297,30 @@ footer {
             text-align: center;
         }
 
+        footer {
+            font-size: 10px;
+        }
+
         .parallax {
-            height: calc(100vh - 400px);
+            height: calc(90vh - 400px);
             margin-top: 80px;
         }
         
-        footer {
-                padding: 5px; /* Adjust the padding for smaller screens */
-                font-size: 12px; /* Adjust the font size for smaller screens */
-            }
 
         #scrollButton {
                 bottom: 50px; /* Adjust the distance from the bottom for smaller screens */
-                right: 10px; /* Adjust the distance from the right for smaller screens */
+                right: 30px; /* Adjust the distance from the right for smaller screens */
             }    
 
             .button-container {
                 flex-direction: column; /* Set to column for mobile view */
-                gap: 50px; /* Adjusted gap for mobile view */
+                gap: 10px; /* Adjusted gap for mobile view */
                 justify-content: center; /* Align to the right for mobile view */
-                margin-left: 40px;
+                margin-left: 100px;
             }
             #text {
     font-size: 2em;
         }
 
-
+    }
 

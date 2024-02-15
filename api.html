@@ -3,64 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get API - Project Akshyar</title>
-     <link rel="icon" type="image/x-icon" href="toplogo.png">
+    <title>Project Akshyar</title>
+    <link rel="icon" type="image/x-icon" href="toplogo.png">
     <link rel="stylesheet" href="styles-api.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        
+        .contact-form {
+            margin: 20px auto;
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            background: url('section-bg-hover.png') center/cover;
+            z-index: 1;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #1c7fad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #f9f9f9;
+            color: #1c7fad;
+            border: 1px solid black;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .btn-color {
+    background-color: #1c7fad !important;
+    color: white !important;
+} 
+
+::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: #51abcb; /* Blue color */
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #51abcb; /* Blue color */
+        }
+        
+.loader {
+            width: 85px;
+            height: 50px;
+            --g1:conic-gradient(from  90deg at left   3px top   3px,#0000 90deg,#1c7fad  0);
+            --g2:conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,#1c7fad  0);
+            background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+            background-position: left,center,right;
+            background-repeat: no-repeat;
+            animation: l9 1s infinite;
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes l9 {
+            0%   {background-size:25px 50% ,25px 50% ,25px 50%}
+            25%  {background-size:25px 100%,25px 50% ,25px 50%}
+            50%  {background-size:25px 50% ,25px 100%,25px 50%}
+            75%  {background-size:25px 50% ,25px 50% ,25px 100%}
+            100% {background-size:25px 50% ,25px 50% ,25px 50%}
+        }
+    </style>
+</head>
 <body>
 
 <header>
-    <h2 class="logo">logo</h2>
+    <h2 class="logo"><span class="Project">Project</span><span class="अक्षर">अक्षर</span></h2>
     <nav class="navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About US</a>
-      <a href="api.html" class="active">Get API</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About US</a>
+        <a href="api.html" class="active">Get API</a>
     </nav>
-    </header>
+</header>
 
- <section class="parallax">
-        <img src="text left.png" id="left">
-        <img src="text right bg.png" id="right">
-        <img src="mountain bg.png" id="mountain">
-        <img src="back hill bg.png" id="back">
-        <h2 id="text"> Get API</h2>
-        <img src="front hill bg.png" id="front">
-
-    </section>
-
+<section class="parallax">
+    <img src="text left.png" id="left">
+    <img src="text right bg.png" id="right">
+    <img src="mountain bg.png" id="mountain">
+    <img src="back hill bg.png" id="back">
+    <h2 id="text">Get API</h2>
+    <img src="front hill bg.png" id="front">
+</section>
 <section class="sec">
-    <div class="container">
-    <form id="contactForm" onsubmit="return validateForm()" action="https://script.google.com/macros/s/AKfycbzukYPaMvpgByTq41Vs9s0mu6QegXmIMG2HQxi9UygGacyIyG-EgJ1kuC0Zl4bSrNx2tg/exec" method="post">
+<section class="contact-form">
+    <form id="contactForm" action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
+        <label for="organization">Organization:</label>
+        <input type="text" id="organization" name="organization" required>
 
-            <label for="organization">Your Organization:</label>
-            <input type="text" id="organization" name="organization" required>
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" name="designation" required>
 
-            <label for="designation">Your Designation:</label>
-            <input type="text" id="designation" name="designation" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-           
-           <center><button id="submit-btn" onclick="submitForm()">Request for API</button></center>
-        </form><br><br></div></section>
-         
+        <label for="message">Purpose For Using Project Akshyar:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
 
-
-    
+        <input type="submit" value="Submit">
+    </form>
+    <div id="errorMessages"></div>
+</section>
+</section>
 <button id="scrollButton" title="Go to top">&#9652;</button>
 <center>
-    <br><br>
-<footer id="site-footer">
-        <p>&copy; 2023 Project Akshyar. All Rights Reserved.</p>
-    </footer></center>
+    <footer>
+            <p>&copy; 2023 Project Akshyar. All Rights Reserved.</p>
+        </footer></center>
 
 
-<script src="scrollButton.js"></script>
-    <script src="script.js"></script>
-    <script src="scroll-animation.js"></script>
-    <script src="api-form.js"></script>
-    <script src="footer.js"></script>
+        <div class="loader"></div>
+    
+        
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                var name = document.getElementById('name').value.trim();
+                var organization = document.getElementById('organization').value.trim();
+                var designation = document.getElementById('designation').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var message = document.getElementById('message').value.trim();
+                
+                var nameRegex = /^[a-zA-Z\s]+$/;
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                var errors = [];
+                
+                if (!nameRegex.test(name)) {
+                    errors.push("Name can only contain letters and spaces.");
+                }
+                
+                if (!nameRegex.test(organization)) {
+                    errors.push("Organization can only contain letters and spaces.");
+                }
+                
+                if (!nameRegex.test(designation)) {
+                    errors.push("Designation can only contain letters and spaces.");
+                }
+                
+                if (!emailRegex.test(email)) {
+                    errors.push("Please enter a valid email address.");
+                }
+                
+                if (errors.length > 0) {
+                    var errorMessageHTML = '<ul>';
+                    errors.forEach(function(error) {
+                        errorMessageHTML += '<li>' + error + '</li>';
+                    });
+                    errorMessageHTML += '</ul>';
+                    document.getElementById('errorMessages').innerHTML = errorMessageHTML;
+                } else {
+                    // Show loader
+                    document.querySelector('.loader').style.display = 'block';
+                    
+                    // Form is valid
+                    // Send data to Google Apps Script web app
+                    var formData = new FormData();
+                    formData.append('name', name);
+                    formData.append('organization', organization);
+                    formData.append('designation', designation);
+                    formData.append('email', email);
+                    formData.append('message', message);
+        
+                    fetch('https://script.google.com/macros/s/AKfycbw_gSlMIJirs_AD1kTGBWdlEGx3vEqOOt5KMuKSkGsly5ZUmaG3be1842W1MwtndfCEig/exec', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Hide loader
+                            document.querySelector('.loader').style.display = 'none';
+                            
+                            // Display Swal confirmation
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thank you for submitting the form!',
+                                text: 'Our team will contact you soon through the provided email.',
+                                confirmButtonText: 'OK',
+                                customClass: {
+                                    confirmButton: 'btn-color'
+                                }
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Redirect to index.html
+                                    window.location.href = 'index.html';
+                                }
+                            });
+                        } else {
+                            throw new Error('Failed to submit the form');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Failed to submit the form. Please try again later.');
+                        document.querySelector('.loader').style.display = 'none';
+                    });
+                }
+            });
+        </script>
+<script src = "script.js"></script>
+<script src = "scrollButton.js"></script>
+<button id="scrollButton" title="Go to top">&#9652;</button>
+<script src="goup.js"></script>
 </body>
 </html>
