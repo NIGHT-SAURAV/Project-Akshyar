@@ -1,6 +1,8 @@
 // script.js
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
+var  display = document.getElementById('predictedString');
+
 
 // Initialize the canvas
 context.fillStyle = '#fff'; // Set background color
@@ -44,16 +46,48 @@ function stopDrawing() {
 }
 
 function clearCanvas() {
+    display.textContent = "";
     context.fillStyle = '#fff';
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function submitCanvas() {
-    var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    var link = document.createElement('a');
-    link.download = 'process.png';
-    link.href = image;
-    link.click();
+
+async function canvas_sub() {
+    const imageUrl = canvas.toDataURL('image/png');
+    return (imageUrl);
+
+} 
+
+async function submitCanvas() {
+    const imageUrl = await canvas_sub();
+    const display = document.getElementById('predictedString');
+     const blob = await (await fetch(imageUrl)).blob();
+
+    const formData = new FormData();
+    formData.append('image', blob, 'image.png');
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "image/png");
+    myHeaders.append("Accept", "application/json");
+    var file = "<>";
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: blob,
+      redirect: 'follow'
+    };
+    
+    fetch("https://akshyar-api.onrender.com/predict", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+            console.log(result);
+            console.log(typeof result);
+            const p = result['prediction'];
+            display.textContent += p;
+
+      } )
+      .catch(error => console.log('error', error));
 }
 
 // Handle touch events

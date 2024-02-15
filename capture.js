@@ -25,26 +25,60 @@ async function captureImage() {
     const imageUrl = canvas.toDataURL('image/png');
     return imageUrl;
 }
+// new thing 
+
 
 async function captureAndSave() {
     const imageUrl = await captureImage();
-    // Freeze the webcam output by pausing the video
+    const display = document.getElementById('predictedString');
     video.pause();
-    // Replace the "Capture" button text with "Recapture"
+
     const captureButton = document.querySelector('.button-container button');
     captureButton.textContent = 'Recapture';
-    captureButton.addEventListener('click', recapture); // Add event listener for recapture
-    // Optionally, you can perform some other action with the captured image here
+    captureButton.removeEventListener('click', captureAndSave); 
+    captureButton.addEventListener('click', recapture); 
+
+    const blob = await (await fetch(imageUrl)).blob();
+
+    const formData = new FormData();
+    formData.append('image', blob, 'image.png');
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "image/png");
+    myHeaders.append("Accept", "application/json");
+    var file = "<>";
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: blob,
+      redirect: 'follow'
+    };
+    
+    fetch("https://akshyar-api.onrender.com/predict", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+            console.log(result);
+            console.log(typeof result);
+            const p = result['prediction'];
+            display.textContent += p;
+
+      } )
+      .catch(error => console.log('error', error));
+    
 }
 
 function recapture() {
-    // Reload the current page
+    
     window.location.reload();
+}
+
+function submitForm() {
+       captureAndSave();
 }
 
 function openWebcam() {
     window.location.href = 'cap.html'; 
 }
 
-// Call setupCamera to initialize the camera
 setupCamera();
