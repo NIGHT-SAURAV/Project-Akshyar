@@ -2,6 +2,7 @@
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
 var  display = document.getElementById('predictedString');
+var [x,y] = [0,0]
 
 
 // Initialize the canvas
@@ -9,7 +10,7 @@ context.fillStyle = '#fff'; // Set background color
 context.fillRect(0, 0, canvas.width, canvas.height); // Fill the canvas with the background color
 
 // Set drawing properties
-context.lineWidth = 8;
+context.lineWidth = 9;
 context.lineCap = 'round';
 context.strokeStyle = '#000';
 
@@ -27,7 +28,8 @@ canvas.addEventListener('touchmove', handleTouchMove);
 
 function startDrawing(e) {
     isDrawing = true;
-    draw(e);
+    //draw(e);
+    [x,y] = [e.x, e.y]
 }
 
 function draw(e) {
@@ -36,9 +38,10 @@ function draw(e) {
     var rect = canvas.getBoundingClientRect(); // get the bounding box of the canvas
 
     context.beginPath();
-    context.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-    context.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+    context.moveTo(x - rect.left,y - rect.top);
+    context.lineTo(e.clientX - rect.left, e.clientY- rect.top);
     context.stroke();
+    [x,y] = [e.x,e.y]
 }
 
 function stopDrawing() {
@@ -78,7 +81,7 @@ async function submitCanvas() {
       redirect: 'follow'
     };
     
-    fetch("https://akshyar-api.onrender.com/predict", requestOptions)
+    fetch("http://127.0.0.1:8000/predict", requestOptions)
       .then(response => response.json())
       .then(result => {
             console.log(result);
