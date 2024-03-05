@@ -81,7 +81,7 @@ async function submitCanvas() {
       redirect: 'follow'
     };
     
-    fetch("http://127.0.0.1:8000/predict", requestOptions)
+    fetch("https://akshyar-api.onrender.com/predict", requestOptions)
       .then(response => response.json())
       .then(result => {
             console.log(result);
